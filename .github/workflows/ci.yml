@@ -71,6 +71,7 @@ jobs:
       - name: Smoke-test container
         run: |
           set -euo pipefail
+          ready=0
           cleanup() {
             docker logs smoke || true
             docker rm -f smoke >/dev/null 2>&1 || true
